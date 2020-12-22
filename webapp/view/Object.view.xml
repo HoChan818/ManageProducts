@@ -1,8 +1,7 @@
 <mvc:View controllerName="manage_products.ManageProducts.controller.Object" 
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic"
-	xmlns:form="sap.ui.layout.form">
+	xmlns:core="sap.ui.core">
 	
 	<ObjectHeader 
 		id="objectHeader" 
@@ -14,70 +13,10 @@
 			<ObjectAttribute text="{Name}"/>
 		</attributes>
 	</ObjectHeader>
+
+	<mvc:XMLView viewName="manage_products.ManageProducts.view.ProductDetails"/>
 	
-	<Panel width="auto" class="sapUiResponsiveMargin"
-		   expandable="{device>/system/phone}"
-		   expanded="true">
-		<headerToolbar>
-			<OverflowToolbar>
-				<Title text="{i18n>productTitle}"/>
-			</OverflowToolbar>
-		</headerToolbar>
-		<content>
-			<form:SimpleForm id="objectForm">
-				<form:content>
-					<Label text="{i18n>productCategoryLabel}"/>
-					<Text text="{Category}"/>
-					<Label text="{i18n>productNameLabel}"/>
-					<Text text="{Name}"/>
-					<Label text="{i18n>productWeightLabel}"/>
-					<Text text="{= ${WeightMeasure} + ' ' + ${WeightUnit}}"/>
-				</form:content>
-			</form:SimpleForm>
-		</content>
-	</Panel>
-	
-	<Panel width="auto" class="sapUiResponsiveMargin"
-		   expandable="{device>/system/phone}"
-		   expanded="false">
-		<headerToolbar>
-			<OverflowToolbar>
-				<Title text="{i18n>supplierTitle}"/>
-			</OverflowToolbar>
-		</headerToolbar>
-		<content>
-			<List id="supplierList">
-				<items>
-					<StandardListItem icon="sap-icon://building" 
-								      title="{ToSupplier/CompanyName}"/>
-					<StandardListItem icon="sap-icon://email"  
-								      title="{ToSupplier/EmailAddress}"/>
-					<StandardListItem icon="sap-icon://world" 
-								      title="{ToSupplier/WebAddress}"/>
-					<StandardListItem icon="sap-icon://phone" 
-								      title="{ToSupplier/PhoneNumber}"/>
-					<StandardListItem icon="sap-icon://map" 
-								      title="{ToSupplier/Address/City}"/>
-				</items>
-			</List>
-		</content>
-	</Panel>
-	
-	<Panel width="auto" class="sapUiResponsiveMargin sapUiHideOnPhone">
-		<headerToolbar>
-			<OverflowToolbar>
-				<Title text="{i18n>mapTitle}"/>
-			</OverflowToolbar>
-		</headerToolbar>
-		
-		<Image src="{
-			parts: [
-						'ToSupplier/Address/Street',
-						'ToSupplier/Address/PostalCode',
-						'ToSupplier/Address/City',
-						'ToSupplier/Address/Country'
-					],
-			formatter: '.formatter.formatMapUrl'
-		}"/>
-	</Panel>
+	<core:Fragment fragmentName="manage_products.ManageProducts.view.SupplierInfo"
+				   type="XML"/>
+
 </mvc:View>

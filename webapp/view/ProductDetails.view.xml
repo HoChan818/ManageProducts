@@ -1,0 +1,27 @@
+<mvc:View controllerName="manage_products.ManageProducts.controller.ProductDetails" 
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form">
+	
+	<Panel width="auto" class="sapUiResponsiveMargin"
+		   expandable="{device>/system/phone}"
+		   expanded="true">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="{i18n>productTitle}"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			<form:SimpleForm id="objectForm">
+				<form:content>
+					<Label id="CategoryLabel" text="{i18n>productCategoryLabel}"/>
+					<Text  id="Category" text="{Category}"/>
+					<Label text="{i18n>productNameLabel}"/>
+					<Text text="{Name}"/>
+					<Label text="{i18n>productWeightLabel}"/>
+					<Text text="{= ${WeightMeasure} + ' ' + ${WeightUnit}}"/>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</Panel>
+</mvc:View>
