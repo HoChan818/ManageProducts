@@ -1,4 +1,6 @@
-<mvc:View controllerName="manage_products.ManageProducts.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="manage_products.ManageProducts.controller.Worklist" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
 	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
 		<semantic:titleHeading>
@@ -46,7 +48,9 @@
 						<items>
 							<ColumnListItem type="Navigation" press=".onPress">
 								<cells>
-									<ObjectIdentifier title="{ProductID}" text="{Name}"/>
+									<ObjectIdentifier title="{ProductID}" text="{Name}" 
+													  titleActive="true"
+													  titlePress="onShowDetailPopover"/>
 									<Text text="{SupplierName}"/>
 									<Link text="{ToSupplier/WebAddress}" href="{ToSupplier/WebAddress}" target="_blank"/>
 									<ObjectNumber number="{ path: 'Price', formatter: '.formatter.numberUnit' }" unit="{CurrencyCode}"/>

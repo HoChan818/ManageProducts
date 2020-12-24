@@ -60,6 +60,19 @@ sap.ui.define([
 				this.getRouter().navTo("worklist", {}, true);
 			}
 		},
+		
+		/**
+		* Event handler for press event on object identifier. 
+		* opens detail popover to show product dimensions.
+		* @public
+		*/
+		onShowDetailPopover : function (oEvent) {
+			var oPopover = this._getPopover();
+			var oSource = oEvent.getSource();
+			oPopover.bindElement(oSource.getBindingContext().getPath());
+			//open dialog
+			oPopover.openBy(oEvent.getParameter("domRef"));
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
@@ -136,6 +149,22 @@ sap.ui.define([
 			oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 			oViewModel.setProperty("/shareSendEmailMessage",
 			oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+		},
+		
+		/**
+		 * In order to only instantiate the popover when it is needed
+		 * To avoid instantiating it multiple times
+		 * @private
+		 */
+		_getPopover : function(){
+			// Create dialog lazily
+			if (!this._oPopover){
+				// create popover via fragment factory
+				this._oPopover = sap.ui.xmlfragment(
+					"manage_products.ManageProducts.view.ResponsivePopover", this);
+				this.getView().addDependent(this._oPopover);
+			}
+			return this._oPopover;
 		}
 
 	});
