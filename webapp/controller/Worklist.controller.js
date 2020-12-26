@@ -181,6 +181,14 @@ sap.ui.define([
 			//open dialog
 			oPopover.openBy(oEvent.getParameter("domRef"));
 		},
+		
+		/**
+		 * Event handler when the add button gets pressed
+		 * @public
+		 */
+		onAdd : function(){
+			this.getRouter().navTo("add");
+		},
 
 
 		/* =========================================================== */

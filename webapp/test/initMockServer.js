@@ -16,7 +16,7 @@ sap.ui.define([
 					resolve();
 				}, reject);
 			});
-		}
+		};
 		return sap.ui.getCore().loadLibrary("sap.m", { async: true }).then(fnShowErrorMessage);
 	}).finally(function () {
 		// initialize the embedded component on the HTML page

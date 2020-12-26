@@ -29,6 +29,7 @@
 										<OverflowToolbarLayoutData maxWidth="200px" priority="NeverOverflow"/>
 									</layoutData>
 								</SearchField>
+								<Button id="addButton" icon="sap-icon://add" press="onAdd"/>
 							</OverflowToolbar>
 						</headerToolbar>
 						<columns>
