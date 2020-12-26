@@ -14,12 +14,12 @@
 		<content>
 			<form:SimpleForm id="objectForm">
 				<form:content>
-					<Label id="CategoryLabel" text="{i18n>productCategoryLabel}"/>
+					<Label id="productCategoryLabel" text="{i18n>productCategoryLabel}"/>
 					<Text  id="Category" text="{Category}"/>
-					<Label text="{i18n>productNameLabel}"/>
-					<Text text="{Name}"/>
-					<Label text="{i18n>productWeightLabel}"/>
-					<Text text="{= ${WeightMeasure} + ' ' + ${WeightUnit}}"/>
+					<Label id="productNameLabel" text="{i18n>productNameLabel}"/>
+					<Text id="Name" text="{Name}"/>
+					<Label id = "WeightMeasureLabel" text="{i18n>productWeightLabel}"/>
+					<Text id = "WeightMeasure" text="{= ${WeightMeasure} + ' ' + ${WeightUnit}}"/>
 				</form:content>
 			</form:SimpleForm>
 		</content>

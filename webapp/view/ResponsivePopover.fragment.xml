@@ -23,7 +23,7 @@
 					<Text text="{i18n>productWeight}:
 								{path:'WeightMeasure',
 								 formatter:'.formatter.numberUnit'}
-								{DimUnit}"/>
+								{WeightUnit}"/>
 				</l:content>
 			</l:Grid>
 		</content>

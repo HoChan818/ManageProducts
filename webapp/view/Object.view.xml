@@ -12,13 +12,13 @@
 		titleActive="true"
 		titlePress="onShowDetailPopover">
 		<attributes>
-			<ObjectAttribute text="{Name}"/>
+			<ObjectAttribute id="objName" text="{Name}"/>
 		</attributes>
 	</ObjectHeader>
 
-	<mvc:XMLView viewName="manage_products.ManageProducts.view.ProductDetails"/>
+	<mvc:XMLView id="vProductDetails" viewName="manage_products.ManageProducts.view.ProductDetails"/>
 	
-	<core:Fragment fragmentName="manage_products.ManageProducts.view.SupplierInfo"
+	<core:Fragment id="fragSupplier" fragmentName="manage_products.ManageProducts.view.SupplierInfo"
 				   type="XML"/>
 
 </mvc:View>

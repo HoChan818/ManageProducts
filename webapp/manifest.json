@@ -69,7 +69,10 @@
 			},
 			"": {
 				"dataSource": "mainService",
-				"preload": true
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
 			}
 		},
 		"routing": {
@@ -80,33 +83,23 @@
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": [
-						"notFound"
-					]
+					"target": ["notFound"]
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "worklist",
-					"target": [
-						"worklist"
-					]
-				},
-				{
-					"pattern": "ProductSet/{objectId}",
-					"name": "object",
-					"target": [
-						"object"
-					]
-				},
-				{
-					"pattern": "addProduct",
-					"name": "add",
-					"target":"add"
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "worklist",
+				"target": ["worklist"]
+			}, {
+				"pattern": "ProductSet/{objectId}",
+				"name": "object",
+				"target": ["object"]
+			}, {
+				"pattern": "addProduct",
+				"name": "add",
+				"target": "add"
+			}],
 			"targets": {
 				"worklist": {
 					"viewName": "Worklist",
@@ -120,7 +113,7 @@
 					"viewLevel": 2,
 					"title": "{i18n>objectViewTitle}"
 				},
-				"add":{
+				"add": {
 					"viewName": "Add",
 					"viewId": "add",
 					"viewLevel": 3
@@ -134,7 +127,8 @@
 					"viewId": "notFound"
 				}
 			}
-		}
+		},
+		"flexEnabled": true
 	},
 	"sap.platform.hcp": {
 		"uri": "webapp",
