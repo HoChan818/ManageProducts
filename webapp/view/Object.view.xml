@@ -14,6 +14,10 @@
 		<attributes>
 			<ObjectAttribute id="objName" text="{Name}"/>
 		</attributes>
+		<statuses>
+			<ObjectStatus text="{ parts:[ {path:'WeightUnit'}, {path:'WeightMeasure'}], 
+								  formatter:'.formatter.delivery'}"/>
+		</statuses>
 	</ObjectHeader>
 
 	<mvc:XMLView id="vProductDetails" viewName="manage_products.ManageProducts.view.ProductDetails"/>
