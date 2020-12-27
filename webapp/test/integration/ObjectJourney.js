@@ -39,5 +39,14 @@ sap.ui.define([
 		Then.iTeardownMyApp();
 	});
 
+	opaTest("Should see the 'New Product' view after pressing the 'Add' button", function (Given, When, Then) {
+			// Arrangements
+			Given.iStartMyApp();
+			//Actions
+			When.onTheWorklistPage.iWaitUntilTheTableIsLoaded().and.iPressAdd();
+			//Assertions
+			Then.onTheNewProductPage.iShouldSeeThePage().and.iTeardownMyAppFrame();
+		});
+
 
 });

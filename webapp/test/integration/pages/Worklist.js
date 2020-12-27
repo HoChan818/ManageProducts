@@ -13,6 +13,7 @@ sap.ui.define([
 	var sViewName = "Worklist",
 		sTableId = "table",
 		sSearchFieldId = "searchField",
+		sAddButtonId = "addButton",      
 		sSomethingThatCannotBeFound = "*#-Q@@||";
 
 	function createWaitForItemAtPosition (oOptions) {
@@ -106,8 +107,17 @@ sap.ui.define([
 					});
 				},
 
-				iSearchForSomethingWithNoResults: function () {
+				iSearchForSomethingWithNoResults : function () {
 					return this.iSearchForValue(sSomethingThatCannotBeFound);
+				},
+				
+				iPressAdd : function(){
+					return this.waitFor({
+						id: sAddButtonId,
+						viewName : sViewName,
+						actions : new Press(),
+						errorMessage : "Add button not found"
+					});
 				}
 
 			}, shareOptions.createActions(sViewName)),
